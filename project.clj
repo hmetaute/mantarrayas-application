@@ -30,7 +30,7 @@
                  [org.webjars.npm/bulma "0.7.5"]
                  [org.webjars.npm/material-icons "0.3.0"]
                  [org.webjars/webjars-locator "0.36"]
-                 [ring-json-response "0.2.0"]
+                 [ring/ring-json "0.5.0"]
                  [reagent "0.8.1"]
                  [ring-webjars "0.2.0"]
                  [ring/ring-core "1.7.1"]

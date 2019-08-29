@@ -8,10 +8,14 @@
 (defn get-club-members [request]
   (response/ok (db/get-club-members)))
 
+(defn insert-club-member [request]
+  (do (println (get-in request [:body-params]))
+      (response/ok {:status "ok"})))
 
 (defn club-member-routes []
   [""
-   {:middleware [middleware/wrap-csrf 
-                 middleware/wrap-formats
-                 middleware/wrap-json]}
-   ["/club-members" {:get get-club-members}]])
+   {:middleware [middleware/wrap-formats
+                 middleware/wrap-json-resp
+                 middleware/wrap-json-req]}
+   ["/club-members" {:get get-club-members
+                     :post insert-club-member}]])

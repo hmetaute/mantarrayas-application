@@ -6,7 +6,7 @@
     [clojure.tools.logging :as log]
     [mantarrayas-backend.layout :refer [error-page]]
     [ring.middleware.anti-forgery :refer [wrap-anti-forgery]]
-    [ring.middleware.json-response :refer [wrap-json-response]]
+    [ring.middleware.json :refer [wrap-json-response wrap-json-body]]
     [mantarrayas-backend.middleware.formats :as formats]
     [muuntaja.middleware :refer [wrap-format wrap-params]]
     [mantarrayas-backend.config :refer [env]]
@@ -33,9 +33,11 @@
        {:status 403
         :title "Invalid anti-forgery token"})}))
 
-(defn wrap-json [handler]
+(defn wrap-json-resp [handler]
   (wrap-json-response handler))
 
+(defn wrap-json-req [handler]
+(wrap-json-body handler {:keywords? true :bigdecimals? true}))
 
 (defn wrap-formats [handler]
   (let [wrapped (-> handler wrap-params (wrap-format formats/instance))]
