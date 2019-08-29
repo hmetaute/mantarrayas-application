@@ -12,6 +12,6 @@ test-config.edn
 profiles.clj
 /.env
 .nrepl-port
-
+*~
 /node_modules
 /log
