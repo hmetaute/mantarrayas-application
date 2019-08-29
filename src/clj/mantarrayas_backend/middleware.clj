@@ -32,6 +32,7 @@
      (error-page
        {:status 403
         :title "Invalid anti-forgery token"})}))
+
 (defn wrap-json [handler]
   (wrap-json-response handler))
 
