@@ -2,7 +2,7 @@
 -- :doc creates a new register for a member to the club
 INSERT INTO club_members
 (id, first_name, last_name, email, pass)
-VALUES ((:id), :first_name, :last_name, :email, :pass)
+VALUES (:id, :first_name, :last_name, :email, :pass)
 
 -- :name update-user! :! :n
 -- :doc updates an existing user record

@@ -9,8 +9,11 @@
   (response/ok (db/get-club-members)))
 
 (defn insert-club-member [request]
-  (do (println (get-in request [:body-params]))
-      (response/ok {:status "ok"})))
+  (let [body (get-in request [:body-params])
+        id (java.util.UUID/fromString (get-in body [:id]))]
+    (do (println id)
+        (db/create-club-member! (assoc body :id id))
+        (response/ok {:status "ok"}))))
 
 (defn club-member-routes []
   [""
