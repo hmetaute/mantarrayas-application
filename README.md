@@ -2,8 +2,6 @@
 
 generated using Luminus version "3.46"
 
-FIXME
-
 ## Prerequisites
 
 You will need [Leiningen][1] 2.0 or above installed.
